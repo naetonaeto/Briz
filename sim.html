@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking Simulation</title>
+    <style>
+        body { font-family: Arial; }
+        .container { width: 80%; margin: 40px auto; }
+        label { display: block; margin-bottom: 10px; }
+        input[type="text"] { padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        button { padding: 10px 20px; background-color: #4CAF50; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Hacking Simulation</h2>
+        <form id="hack-form">
+            <label>Target System/User:</label>
+            <input type="text" id="target" placeholder="example.com">
+            <br><br>
+            <label>Hack Method:</label>
+            <input type="text" id="method" placeholder="brute force">
+            <br><br>
+            <button id="hack-btn">Simulate Hack</button>
+            <div id="result"></div>
+        </form>
+    </div>
+
+    <script>
+        const hackBtn = document.getElementById('hack-btn');
+        const targetInput = document.getElementById('target');
+        const methodInput = document.getElementById('method');
+        const resultDiv = document.getElementById('result');
+
+        hackBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = targetInput.value;
+            const method = methodInput.value;
+            simulateHack(target, method);
+        });
+
+        function simulateHack(target, method) {
+            resultDiv.innerHTML = `Simulating ${method} hack on ${target}...`;
+            setTimeout(() => {
+                resultDiv.innerHTML = "Hack successful!";
+            }, 2000); // Wait 2 seconds
+        }
+    </script>
+</body>
+</html>
